@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-4">Get<span class="text-red-500 font-medium">Discount</span>!!!
+        </h1>
+    </header>
+    <main>
+        <div class="bg-violet-400 p-8 rounded-lg mt-8 w-3/4 mx-auto">
+            <h3 class="text-4xl text-white mb-4">Total: <span id="total">1200</span></h3>
+            <h1 class="text-4xl text-amber-800 mb-4">Use Promo Code for 30% Discount</h1>
+            <input id="input-field" class="w-3/4 px-4 py-3 rounded" type="text" placeholder="DISC30">
+
+            <button id="btn-discount"class="bg-blue-800 px-6 py-2 text-white rounded-lg mt-4 font-medium hover:bg-blue-600">Apply</button>
+
+            <h2 class="text-4xl text-white mb-4 mt-4">ALL COST :<span id="all-total-discount"> 00</span></h2>
+        </div>
+        
+    </main>
+    <script src="js/discount.js"></script>
+    <script>
+        document.getElementById('btn-discount').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputFieldValue = inputField.value;
+            if(inputFieldValue == "DISC30"){
+                const total = document.getElementById("total");
+                total.style.fontWeight = '900';
+                const totalString = total.innerText;
+                const totalNumber = parseFloat(totalString);
+                const newTotal = totalNumber - totalNumber * .3
+                const newDiscount = document.getElementById('all-total-discount');
+                const newDiscountString = newDiscount.innerText;
+                const newDiscountNumber = parseFloat(newDiscountString);
+                newDiscount.innerText = newTotal ;
+                // const newDiscount.innerText = newTotal;
+
+            }
+            else{
+                // btn-discount.setAttribute('disabled', true);
+                alert("promo code is not correct");
+            }
+        })
+    </script>
+</body>
+
+</html>

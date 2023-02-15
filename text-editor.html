@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Text Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- fontawesome kit -->
+    <script src="https://kit.fontawesome.com/9bb94f2cae.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-blue-400 w-3/4 mx-auto mt-8">
+    <header>
+        <h1 class="text-5xl text-center mt-4 px-4">My Text Editor</h1>
+    </header>
+    <main class="bg-blue-200 p-7 border-2 border-current">
+        <section class="flex justify-around mt-8">
+            <div class="grid grid-cols-3 gap-4">
+                <p id="bold"><i class="fa-solid fa-bold"></i></p>
+                <p id="italic"><i class="fa-solid fa-italic"></i></p>
+                <p id="underline"><i class="fa-solid fa-underline"></i></p>
+            </div>
+            <div class="grid grid-cols-4 gap-4">
+                <p id="align-left"><i class="fa-solid fa-align-left"></i></p>
+                <p id="align-center"><i class="fa-solid fa-align-center"></i></p>
+                <p id="align-justify"><i class="fa-solid fa-align-justify"></i></p>
+                <p id="align-right"><i class="fa-solid fa-align-right"></i></p>
+            </div>
+            <div class="grid grid-cols-3" style="width: 200px;">
+                <p>
+                    <input class="mb-2" type="number" name="" id="get-number" placeholder="" style="width: 50px;">
+                    <!-- <input type="text" name="" id="put1"style="width: 50px;"> -->
+                </p>
+                <p><i class="fa-solid fa-arrow-up-a-z"></i></p>
+                <p>
+                    <input type="color" name="bg-blue-400" id="get" style="width: 50px;">
+                    <input type="text" name="" id="put" style="width: 60px;">
+                </p>
+            </div>
+        </section>
+        <!-- end of buttons section -->
+        <hr class="decoration-green-300 border-current">
+        <!-- start of  textarea section-->
+        <section class="mt-8">
+            <div>
+                <textarea class="w-full" name="" id="text-area" cols="130" rows="10"></textarea>
+            </div>
+        </section>
+        <!-- end of textarea section -->
+        <script>
+            // step-1:make bold
+            document.getElementById('bold').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.fontWeight = 'bold';
+            })
+            
+
+            // step-2:make italic
+            document.getElementById('italic').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.fontStyle = "italic";
+            })
+
+            // step-3:make underline
+            document.getElementById('underline').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                textareaText = textarea.value;
+                textarea.style.textDecoration ='underline';
+            })
+
+            // step-4:text-align-left
+            document.getElementById('align-left').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.textAlign = "left";
+            })
+
+            // step-5:text-align-center
+            document.getElementById('align-center').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.textAlign = "center";
+            })
+
+            // step-6:text-align-justify
+            document.getElementById('align-justify').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.textAlign = "justify";
+            })
+
+            // step-7:text-align-right
+            document.getElementById('align-right').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // textareaText = textarea.value;
+                textarea.style.textAlign = "right";
+            })
+
+
+            // step-8:input-number
+            document.getElementById('get-number').addEventListener('change', function (event) {
+                const textarea = document.getElementById('text-area');
+                // const textareaValue = textarea.value; 
+                const get = document.getElementById('get-number').value;
+                const getNumber = parseFloat(get);
+                console.log(getNumber);
+                textarea.style.fontWeight = getNumber;
+                
+            })
+
+            // step-10:text-color
+            document.getElementById('get').addEventListener('click', function () {
+                const textarea = document.getElementById('text-area');
+                // const colorValue = document.getElementById('colorbox').value;
+                // textareaText = textarea.value;
+                const get = document.getElementById('get').value;
+                const put = document.getElementById('put')
+                put.value = get;
+                const getPutValue = document.getElementById('put');
+                const getFinalPutValue = getPutValue.value;
+                console.log(getFinalPutValue);
+
+                textarea.style.color = getFinalPutValue;
+
+
+
+                // document.querySelectorAll("text-area").forEach((textarea) => {
+                //     textarea.style.color = event.target.value;
+                // });
+            
+                
+            })
+        </script>
+    </main>
+</body>
+
+</html>

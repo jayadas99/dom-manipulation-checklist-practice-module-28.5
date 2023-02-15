@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-4">Get<span class="text-red-500 font-medium">Discount</span>!!!
+        </h1>
+    </header>
+    <main>
+        <div class="bg-violet-400 p-8 rounded-lg mt-8 w-3/4 mx-auto">
+            <h3 class="text-4xl text-white mb-4">Total: <span id="total">1200</span></h3>
+            <h1 class="text-4xl text-amber-800 mb-4">Use Promo Code for 30% Discount</h1>
+            
+
+            <button id="btn-discount"class="bg-blue-800 px-6 py-2 text-white rounded-lg mt-4 font-medium hover:bg-blue-600">Apply</button>
+
+            <h2 class="text-4xl text-white mb-4 mt-4">ALL COST :<span id="all-total-discount"> 00</span></h2>
+        </div>
+        
+    </main>
+    <script src="js/discount.js"></script>
+    <script>
+        document.getElementById('btn-discount').addEventListener('click', function(){
+            const total = document.getElementById('total');
+            const totalString = total.innerText;
+            const totalValue = parseFloat(totalString);
+            const discountValue = totalValue - totalValue * .3
+            const finalCost = document.getElementById('all-total-discount');
+            finalCost.innerText = discountValue;
+        })
+    </script>
+</body>
+
+</html>
